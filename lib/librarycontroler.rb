@@ -16,6 +16,7 @@ class MusicLibraryController
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
     input = gets.chomp
+<<<<<<< HEAD
     if input == "list songs"
       self.list_songs
     elsif input == "list artists"
@@ -29,11 +30,15 @@ class MusicLibraryController
     elsif input == "play song"
       self.play_song
     elsif input != 'exit'
+=======
+    if input != 'exit'
+>>>>>>> cb22a8fe0b4fc2b6c504e192b6fe418cef49b036
       self.call
     end
   end
   def list_songs
     Song.all.sort_by! {|song| song.name}
+<<<<<<< HEAD
     Song.all.uniq!
     Song.all.each_with_index do |song, i|
       puts (i + 1).to_s + ". #{song.artist.name} - #{song.name} - #{song.genre.name}"
@@ -83,6 +88,11 @@ class MusicLibraryController
       Song.all.uniq!
       picked = Song.all[input - 1]
       puts "Playing #{picked.name} by #{picked.artist.name}"
+=======
+    binding.pry
+    Song.all.each_with_index do |obj, i|
+      puts (i + 1).to_s + ". #{obj.artist.name} - #{obj.name} - #{obj.genre.name}"
+>>>>>>> cb22a8fe0b4fc2b6c504e192b6fe418cef49b036
     end
   end
 end
